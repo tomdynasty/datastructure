@@ -144,6 +144,7 @@ const isReachable = (arr, size) => {
 
 const knight = (size) => {
     if (size === 1) {
+      console.log("All Path could be filled");
       console.log(1);
       return;
     }
@@ -159,4 +160,4 @@ const knight = (size) => {
     printFinalKnightArr(arr);
   }
 
-knight(6);
+knight(4);
