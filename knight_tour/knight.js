@@ -160,4 +160,4 @@ const knight = (size) => {
     printFinalKnightArr(arr);
   }
 
-knight(4);
+knight(5);
