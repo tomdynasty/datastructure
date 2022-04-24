@@ -1,5 +1,5 @@
 // Javascript program for Knight Tour problem
-let N = 3;
+let N = 8;
 
 // create a Valid move func
 const isSafe = (i, j, arr) => {
@@ -66,16 +66,15 @@ function solveKT()
 // Tour problem
 function solveKTUtil(x, y, movei, sol, xMove, yMove)
 {
-    let k, next_x, next_y;
     if (movei == N * N)
         return true;
  
     // Try all next moves from the
     // current coordinate x, y
-    for(k = 0; k < 8; k++)
+    for(let k = 0; k < 8; k++)
     {
-        next_x = x + xMove[k];
-        next_y = y + yMove[k];
+        const next_x = x + xMove[k];
+        const next_y = y + yMove[k];
          
         if (isSafe(next_x, next_y, sol))
         {
