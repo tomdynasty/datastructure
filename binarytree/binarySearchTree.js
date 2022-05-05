@@ -77,6 +77,15 @@ export default class BinarySearchTree {
           node = node.left;
           return node;
         }
+        // Deleting node with two children
+        // 1. find minimum number  
+        // 2. replace root node data with right minimum data
+        // 3. delete right minimum node
+        const aux = this.findMinNode(node.right);
+        node.data = aux.data;
+ 
+        node.right = this.removeNode(node.right, aux.data);
+        return node;
       }
     }
 
@@ -89,10 +98,41 @@ export default class BinarySearchTree {
                  
  
     // Helper function
-    // getRootNode()
-    // inOrder(node)
-    // preOrder(node)
-    // postOrder(node)
-    // search(node, data)
+    // returns root of the tree
+    getRootNode() {
+        return this.root;
+    }
+    inOrder(node) {
+      if (node !== null) {
+        this.inOrder(node.left);
+        console.log(node.data);
+        this.inOrder(node.right);
+      }
+    }
+
+    preOrder(node) {
+      if (node !== null) {
+        console.log(node.data);
+        this.preOrder(node.left);
+        this.preOrder(node.right);
+      }
+    }
+    postOrder(node) {
+      if (node !== null) {
+        this.postOrder(node.left);
+        this.postOrder(node.right);
+        console.log(node.data);
+      }
+    }
+    search(node, data) {
+      if (node === null) {
+        return null;
+      } else if (data < node.data) {
+        return this.search(node.left, data);
+      } else if (data > node.data) {
+        return this.search(node.right, data);
+      }
+      return node;
+    }
 
 }
