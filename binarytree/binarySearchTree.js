@@ -47,11 +47,48 @@ export default class BinarySearchTree {
     }
 
 
-    // remove(data)
+    remove(data) {
+      this.root = this.removeNode(this.root, data);
+    }
+
+    // Method to remove node with a
+    // given data
+    removeNode(node, key) {
+      if (node === null) {
+        return null;
+      } else if (key < node.data) {
+        node.left = this.removeNode(node.left, key);
+        return node;
+      } else if (key > node.data) {
+        node.right = this.removeNode(node.right, key);
+        return node;
+      // if data is similar to the root's data
+      // then delete this node
+      } else {
+        // delete node with no children
+        if (node.left === null && node.right === null) {
+          node = null;
+          return node;
+        } else if (node.left === null) {
+          node = node.right
+          return node;
+        } else if (node.right === null) {
+          // delete node with one left children
+          node = node.left;
+          return node;
+        }
+      }
+    }
+
+    findMinNode(node) {
+      if (node.left === null) {
+        return node;
+      }
+      return this.findMinNode(node.left);
+    }
                  
  
     // Helper function
-    // findMinNode()
     // getRootNode()
     // inOrder(node)
     // preOrder(node)
