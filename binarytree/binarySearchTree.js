@@ -4,6 +4,8 @@ export default class BinarySearchTree {
   constructor() {
     // root of a binary search tree
     this.root = null;
+    // for inOrder / preOrder / postOrder
+    this.orderStack = [];
   }
     // function to be implemented
     insert (data) {
@@ -80,11 +82,12 @@ export default class BinarySearchTree {
         // Deleting node with two children
         // 1. find minimum number  
         // 2. replace root node data with right minimum data
-        // 3. delete right minimum node
+        // 3. node right points to right nodes list where delete right minimum node
         const aux = this.findMinNode(node.right);
         node.data = aux.data;
  
         node.right = this.removeNode(node.right, aux.data);
+
         return node;
       }
     }
@@ -102,17 +105,30 @@ export default class BinarySearchTree {
     getRootNode() {
         return this.root;
     }
+
+    showOrderNode(node) {
+      let newNode = new Node();
+      newNode.data = node.data;
+      if (node.left != null) {
+        newNode.left = node.left.data;
+      }
+      if (node.right != null) {
+        newNode.right = node.right.data;    
+      }
+      this.orderStack.push(newNode);
+    }
+
     inOrder(node) {
       if (node !== null) {
         this.inOrder(node.left);
-        console.log(node.data);
+        this.showOrderNode(node);
         this.inOrder(node.right);
       }
     }
 
     preOrder(node) {
       if (node !== null) {
-        console.log(node.data);
+        this.showOrderNode(node);
         this.preOrder(node.left);
         this.preOrder(node.right);
       }
@@ -121,9 +137,14 @@ export default class BinarySearchTree {
       if (node !== null) {
         this.postOrder(node.left);
         this.postOrder(node.right);
-        console.log(node.data);
+        this.showOrderNode(node);
       }
     }
+
+    printOrderNode() {
+      console.table(this.orderStack)
+    }
+
     search(node, data) {
       if (node === null) {
         return null;

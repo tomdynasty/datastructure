@@ -27,6 +27,7 @@ let root = BST.getRootNode();
              
 // prints 5 7 9 10 13 15 17 22 25 27
 BST.inOrder(root);
+console.log(BST.orderStack);
              
 // Removing node with no children
 BST.remove(5);
@@ -48,6 +49,7 @@ BST.inOrder(root);
              
 // Removing node with one child
 BST.remove(7);
+
              
 //          15
 //         /  \
