@@ -82,3 +82,6 @@ console.log("postorder traversal");
 BST.postOrder(root);
 console.log("preorder traversal");
 BST.preOrder(root);
+console.log("levelorder traversal");
+// prints 17 10 25 9 13 22 27
+BST.levelOrder(root);

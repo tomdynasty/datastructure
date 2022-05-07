@@ -135,4 +135,22 @@ export default class BinarySearchTree {
       return node;
     }
 
+    levelOrder(node) {
+      const queue = []
+      while (node) {
+        console.log(node.data);
+        if (node.left) {
+          queue.push(node.left);
+        }
+        if (node.right) {
+          queue.push(node.right);
+        }
+        if (queue.length === 0) {
+          return;
+        }
+        node = queue[0];
+        queue.shift();
+      }
+    }
+
 }
