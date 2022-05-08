@@ -15,7 +15,7 @@ export default class ThreadedBinaryTree {
     while (ptr != null) {
       // If key already exists, return
       if (iKey === ptr.info) {
-        console.log("Duplicate Key !");
+        console.log(`Duplicate Key ${iKey}!`);
         return this.root;
       }
 
