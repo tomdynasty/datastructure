@@ -22,14 +22,45 @@ class PriorityQueue {
                 break;
             }
         }
-
+        // if the element have the highest priority
+        // it is added at the end of the queue
         if (!contain) {
             this.items.push(qElement);
         }
     }
-    // enqueue(item, priority)
-    // dequeue()
-    // front()
-    // isEmpty()
-    // printPQueue()  
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+    
+    dequeue() {
+        if (this.isEmpty()) {
+            return "underflow";
+        }
+        return this.items.shift();
+    }
+
+    front() {
+        if (this.isEmpty()) {
+            return "No elements in Queue";
+        }
+        return this.items[0];
+    }
+
+    rear() {
+        // returns the lowest priority
+        // element of the queue
+        if (this.isEmpty()) {
+            return "No elements in Queue";
+        }
+        return this.items[this.items.length - 1]
+    }
+
+    printPQueue() {
+        let str = "";
+        for (let i = 0; i < this.items.length; i++) {
+            str += this.items[i].element + "  ";
+        }
+        return str;
+    }
 }
