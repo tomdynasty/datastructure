@@ -5,7 +5,7 @@ class QElement {
     }
 }
 
-class PriorityQueue {
+export default class PriorityQueue {
     constructor() {
         this.items = [];
     }
