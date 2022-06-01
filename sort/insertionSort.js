@@ -1,4 +1,4 @@
-function insertionSort(arr) {
+export default function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
       let j = i - 1;
       const current = arr[i];

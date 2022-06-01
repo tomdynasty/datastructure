@@ -1,4 +1,4 @@
-function quickSort(arr) {
+export default function quickSort(arr) {
     // edge case
     if (arr.length <= 1) {
         return arr

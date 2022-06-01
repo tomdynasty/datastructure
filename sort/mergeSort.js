@@ -18,7 +18,7 @@ function mergeSortedArr(leftArr, rightArr) {
 }
 
 
-function mergeSort(arr) {
+export default function mergeSort(arr) {
     if (arr.length <= 1) {
         return arr;
     }
