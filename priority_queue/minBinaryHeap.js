@@ -39,15 +39,58 @@ export default class MinnBinaryHeap {
         this.items[index2] = temp;
         return this.items;
     }
+
+    remove () {
+        if (this.items.length <= 1) return this.items.pop();
+        const ret = this.items[0]; // what we will return
+        let temp = this.items.pop();
+        this.items[0] = temp;  // Place last element in array at front
+        let i = 0;
+
+        while (true) {
+            let rightChildIndex = (i + 1) * 2;
+            let leftChildIndex = (i + 1) * 2 - 1;
+            let lowest = rightChildIndex;
+
+            if ((leftChildIndex >= this.items.length) &&
+                (rightChildIndex >= this.items.length)) {
+                break;
+            }
+
+            if (leftChildIndex >= this.items.length) lowest = rightChildIndex;
+            if (rightChildIndex >= this.items.length) lowest = leftChildIndex;
+            if ((!(leftChildIndex >= this.items.length)) &&
+               (!(rightChildIndex >= this.items.length))) {
+                lowest = this.selector(this.items[rightChildIndex]) < this.selector(this.items[leftChildIndex])
+                ? rightChildIndex
+                : leftChildIndex;
+            } // Find the smallest child
+
+            if (this.selector(this.items[i]) > this.selector(this.items[lowest])) {
+                this.swap(i, lowest);
+                i = lowest;
+            } else {
+                break;
+            }
+            return ret;
+        }
+    }
 }
 
 const selector = (val) => {
     return val;
 }
 const minHeap = new MinnBinaryHeap(selector);
-minHeap.insert(10);
+minHeap.insert(13);
+minHeap.insert(12);
+minHeap.insert(11);
 minHeap.insert(3);
 minHeap.insert(2);
 minHeap.insert(1);
-// 1 10
+// 1, 3 ,2, 13, 11, 12
+console.log(minHeap);
+
+// 3, 11, 12, 13
+minHeap.remove();
+minHeap.remove();
 console.log(minHeap);
