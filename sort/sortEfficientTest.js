@@ -41,4 +41,4 @@ pressureTest(quickSort);
 pressureTest(internalSort);
 
 // random num sort speed greatest test
-// internalSort > mergeSort > quickSort == radixSort > insertionSort
+// internalSort > mergeSort > quickSort == radixSort > insertionSort (slow)
