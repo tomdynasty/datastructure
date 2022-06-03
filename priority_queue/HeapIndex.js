@@ -1,4 +1,4 @@
-import MaxBinaryHeap from './binaryHeaps.js';
+import MaxBinaryHeap from './maxBinaryHeap.js';
 
 const heap = new MaxBinaryHeap();
 heap.insert(1);
