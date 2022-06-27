@@ -56,6 +56,6 @@ const dijkstra = (graph, start) => {
     return [parent, shortest];
 }
 
-let [parent, distance] = dijkstra(graph, "A");
+let [parent, shortest] = dijkstra(graph, "A");
 console.log(parent);
-console.log(distance);
+console.log(shortest);
