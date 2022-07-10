@@ -4,7 +4,7 @@ const selectionSort = (arr) => {
         // 先預設第一個是最小的
         let min = arr[i];
         let minIndex = i;
-        for (let j = i; j < arr.length; j++) {
+        for (let j = i+1; j < arr.length; j++) {
             if (arr[j] < min) {
                 min = arr[j];
                 minIndex = j;
